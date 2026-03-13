@@ -12,7 +12,7 @@
   "scripts": {
     "build": "bun build src/index.ts --outfile dist/index.js --target node",
     "prepublishOnly": "bun run build",
-    "test": "bun test",
+    "test": "AGENT=1 bun test --bail=2",
     "format": "biome format --write .",
     "check": "biome check .",
     "check:fix": "biome check --write .",
@@ -26,7 +26,8 @@
   "knip": {
     "entry": [
       "src/index.ts",
-      "src/validate-themes.ts"
+      "src/validate-themes.ts",
+      "tests/**/*.test.ts"
     ]
   },
   "devDependencies": {

@@ -4,13 +4,22 @@ import { addCommand } from './commands/add';
 import { previewCommand } from './commands/preview';
 import { listCommand } from './commands/list';
 import { findCommand } from './commands/find';
+import { showBanner, showLogo } from './lib/banner';
+import { version } from '../package.json';
+
+if (process.argv.length <= 2) {
+  showBanner();
+  process.exit(0);
+}
+
+showLogo();
 
 const program = new Command();
 
 program
   .name('cc-spinner')
   .description('Claude Code の spinnerVerbs テーマを配布・適用する CLI ツール')
-  .version('0.0.1');
+  .version(version);
 
 program
   .command('add <theme>')
