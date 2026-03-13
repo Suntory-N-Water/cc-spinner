@@ -1,0 +1,27 @@
+{
+  "name": "cc-spinner",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "format": "biome format --write .",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "lint": "biome lint .",
+    "lint:unsafe-fix": "biome lint --write --unsafe .",
+    "lint:ai": "biome lint --reporter=github . 2>&1 | { grep '^::' || true; }",
+    "type-check": "tsc --noEmit",
+    "type-check:ai": "tsc --noEmit --pretty false",
+    "ai-check": "bun run format && bun run lint:ai && bun run type-check:ai"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.6",
+    "@types/bun": "^1.3.10",
+    "@types/node": "^25.4.0",
+    "knip": "¥5.86.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

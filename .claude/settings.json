@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "mcp__serena",
+      "mcp__playwright",
+      "mcp__context7",
+      "mcp__deepwiki",
+      "mcp__chrome-devtools",
+      "mcp__kiri",
+      "Bash(gh:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh run view:*)",
+      "Bash(git log:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh search issues:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh api:*)",
+      "Bash(gh label list:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue comment:*)",
+      "Bash(gh release:*)",
+      "Bash(gh run rerun:*)",
+      "Bash(pinact run:*)",
+      "Bash(ghalint run:*)",
+      "Bash(zizmor:*)",
+      "Bash(agent-browser:*)",
+      "Bash(cat:*)",
+      "Bash(chmod:*)",
+      "Bash(find:*)",
+      "Bash(tree:*)",
+      "Bash(bun add:*)",
+      "Bash(bun remove:*)",
+      "Bash(bun install:*)",
+      "Bash(bun run:*)",
+      "Bash(bun knip:*)",
+      "WebFetch",
+      "WebSearch",
+      "Bash(git status:*)",
+      "Bash(wc:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)",
+      "Read(.env)",
+      "Bash(.env)",
+      "Read(.dev.vars)",
+      "Bash(.dev.vars)",
+      "Write(.env*)",
+      "Write(.dev.vars)",
+      "NotebookEdit",
+      "NotebookRead"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(rm:*)",
+      "Bash(curl:*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run --silent -i ~/.claude/scripts/typescript/multi-command-check.ts -c format,lint:ai,type-check:ai,knip,test"
+          },
+          {
+            "type": "command",
+            "command": "bun run --silent -i ~/.claude/scripts/typescript/fix-brackets.ts"
+          },
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run --silent -i ~/.claude/scripts/typescript/no-restricted-edit.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run --silent -i ~/.claude/scripts/typescript/web-fetch-advice.ts"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash .claude/statusline-command.sh"
+  },
+  "plansDirectory": ".claude/plans",
+  "enabledPlugins": {
+    "gh-aw-best-practice@suntory-n-water-marketplace": true,
+    "managing-git-github-workflow@suntory-n-water-marketplace": true,
+    "building-astro5-blogs@suntory-n-water-marketplace": true
+  },
+  "autoMemoryEnabled": false,
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": [
+      "…人間の寿命は短いってわかっていたのに… …なんでもっと知ろうと思わなかったんだろう…",
+      "私の集めた魔法を褒めてくれた馬鹿がいた。それだけだよ。",
+      "想いっていうのは言葉にしないと伝わらないのに。",
+      "私は今の話をしているんだよ",
+      "アウラ、自害しろ",
+      "魔法は探し求めている時が一番楽しいんだよ",
+      "また会ったときに恥ずかしいからね",
+      "だって私……この人のこと何も知らないし……",
+      "それは一朝一夕でどうにかなることじゃない。",
+      "才能に関わらず、何年もかけていかなければいけないよ。",
+      "おまえが死ぬまでにやるべきことは、あの子にしっかりと別れを告げて、なるべくたくさんの思い出を作ってやることだ。",
+      "この魔法はね。ずっと昔に死んでしまった私の師匠が好きだった魔法なんだ。",
+      "そうだね。",
+      "勇者ヒンメルならそうしたってことだよ",
+      "魔法はイメージの世界なんだ",
+      "…縦ロールになっちゃった…",
+      "正直興味はないよ。だから見て確かめるんだ。",
+      "お前の前にいるのは1000年以上生きた魔法使いだ",
+      "ふ〜ん面白くなってきた。ダンジョン攻略はこうでなくちゃ。",
+      "暗いよ〜！怖いよ〜！"
+    ]
+  }
+}

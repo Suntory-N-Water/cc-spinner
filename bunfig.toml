@@ -1,0 +1,6 @@
+[run]
+silent = true
+
+[install]
+minimumReleaseAge = 86400
+exact = true
