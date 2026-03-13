@@ -1,5 +1,7 @@
 # cc-spinner
 
+[日本語](./README.ja.md)
+
 A CLI tool to distribute and apply `spinnerVerbs` themes for Claude Code.
 
 Claude Code supports a `spinnerVerbs` setting in `settings.json` that customizes the text displayed while the AI is processing. **cc-spinner** makes it easy to share and apply these themes.
