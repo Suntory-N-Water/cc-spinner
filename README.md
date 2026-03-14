@@ -72,6 +72,7 @@ Themes are stored as JSON files in the `themes/` directory and must conform to t
 
 ```json
 {
+  "$schema": "../schema.json",
   "name": "frieren",
   "description": "Quotes from Frieren: Beyond Journey's End",
   "tags": ["anime", "japanese"],
@@ -85,6 +86,7 @@ Themes are stored as JSON files in the `themes/` directory and must conform to t
 
 | Field | Type | Required | Constraints |
 |-------|------|----------|-------------|
+| `$schema` | string | - | Path to `schema.json` for editor validation |
 | `name` | string | ✅ | Lowercase letters, digits, and hyphens only. Must match the filename. |
 | `description` | string | - | Any string |
 | `tags` | string[] | - | Any strings |
