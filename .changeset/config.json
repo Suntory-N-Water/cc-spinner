@@ -1,6 +1,9 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.1.3/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "Suntory-N-Water/cc-spinner" }],
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "Suntory-N-Water/cc-spinner" }
+  ],
   "commit": false,
   "fixed": [],
   "linked": [],
