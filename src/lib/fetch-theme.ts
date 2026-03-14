@@ -37,15 +37,15 @@ export async function fetchTheme(nameOrRepo: string): Promise<ThemeData> {
 
   if (!res.ok) {
     if (type === 'github') {
-      throw new Error('リポジトリまたはファイルが見つかりません');
+      throw new Error('Repository or file not found');
     }
-    throw new Error(`テーマ "${nameOrRepo}" が見つかりません`);
+    throw new Error(`Theme "${nameOrRepo}" not found`);
   }
 
   if (type === 'github') {
     const settings = v.parse(GitHubSettingsSchema, await res.json());
     if (!settings.spinnerVerbs) {
-      throw new Error('spinnerVerbs が設定されていません');
+      throw new Error('spinnerVerbs is not configured');
     }
     return settings.spinnerVerbs;
   }

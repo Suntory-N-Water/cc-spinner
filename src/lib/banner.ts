@@ -54,13 +54,13 @@ export function showBanner(): void {
   showLogo();
   const reset = isColorSupported ? RESET : '';
   console.log(
-    `${DIM}Claude Code の spinnerVerbs テーマを配布・適用する CLI ツール${reset}`,
+    `${DIM}CLI tool to distribute and apply spinnerVerbs themes for Claude Code${reset}`,
   );
   console.log();
-  cmd('add', '<theme>', 'テーマを適用する');
-  cmd('preview', '<theme>', 'セリフ一覧を確認する');
-  cmd('list', '', '利用可能なテーマ一覧を表示する');
-  cmd('find', '<tag>', 'タグでテーマを検索する');
+  cmd('add', '<theme>', 'Apply a theme');
+  cmd('preview', '<theme>', 'Preview verbs');
+  cmd('list', '', 'List available themes');
+  cmd('find', '<query>', 'Find themes');
   console.log();
   console.log(`${DIM}try:${reset} npx cc-spinner add frieren`);
   console.log();

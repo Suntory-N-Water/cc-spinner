@@ -7,7 +7,7 @@ export async function previewCommand(theme: string): Promise<void> {
     process.exit(1);
   });
 
-  console.log(pc.bold(`\nテーマ "${theme}" のセリフ一覧:\n`));
+  console.log(pc.bold(`\nVerbs in "${theme}":\n`));
   themeData.verbs.forEach((verb, i) => {
     console.log(`${pc.dim(`${i + 1}.`)} ${verb}`);
   });
