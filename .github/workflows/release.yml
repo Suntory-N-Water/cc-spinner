@@ -20,9 +20,12 @@ jobs:
     name: release
     timeout-minutes: 10
     runs-on: ubuntu-latest
+    if: github.repository == 'Suntory-N-Water/cc-spinner'
+    environment: release
     permissions:
       contents: write
       pull-requests: write
+      id-token: write
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -30,7 +33,7 @@ jobs:
       - uses: ./.github/actions/setup
       - uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf # v1.7.0
         with:
-          publish: npm publish --access public
+          publish: npm publish --access public --provenance
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: "true"

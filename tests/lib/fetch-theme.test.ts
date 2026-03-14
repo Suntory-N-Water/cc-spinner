@@ -3,8 +3,13 @@ import { buildThemeUrl } from '../../src/lib/fetch-theme';
 
 describe('buildThemeUrl', () => {
   test('"/" を含まない引数は中央リポジトリ URL になる', () => {
-    const result = buildThemeUrl('frieren');
+    // Arrange
+    const sut = buildThemeUrl;
 
+    // Act
+    const result = sut('frieren');
+
+    // Assert
     expect(result).toEqual({
       url: 'https://raw.githubusercontent.com/Suntory-N-Water/cc-spinner/main/themes/frieren.json',
       type: 'central',
@@ -12,8 +17,13 @@ describe('buildThemeUrl', () => {
   });
 
   test('"/" を含む引数は GitHub 直指定 URL になる', () => {
-    const result = buildThemeUrl('owner/repo');
+    // Arrange
+    const sut = buildThemeUrl;
 
+    // Act
+    const result = sut('owner/repo');
+
+    // Assert
     expect(result).toEqual({
       url: 'https://raw.githubusercontent.com/owner/repo/main/.claude/settings.json',
       type: 'github',
@@ -21,10 +31,13 @@ describe('buildThemeUrl', () => {
   });
 
   test('org/repo 形式でも正しく URL を組み立てられる', () => {
-    const result = buildThemeUrl(
-      'Suntory-N-Water/claude-code-changelog-viewer',
-    );
+    // Arrange
+    const sut = buildThemeUrl;
 
+    // Act
+    const result = sut('Suntory-N-Water/claude-code-changelog-viewer');
+
+    // Assert
     expect(result).toEqual({
       url: 'https://raw.githubusercontent.com/Suntory-N-Water/claude-code-changelog-viewer/main/.claude/settings.json',
       type: 'github',

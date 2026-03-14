@@ -1,5 +1,5 @@
 {
-  "name": "cc-spinner",
+  "name": "@suntory-n-water/cc-spinner",
   "type": "module",
   "version": "0.0.2",
   "bin": {

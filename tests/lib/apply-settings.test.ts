@@ -21,30 +21,40 @@ describe('applySettings', () => {
   });
 
   test('ファイルが存在しない場合は新規作成できる', async () => {
+    // Arrange
+    const sut = applySettings;
     const dir = await createTmpDir();
     tmpDirs.push(dir);
     const filePath = join(dir, 'settings.json');
     const spinnerVerbs = { mode: 'replace' as const, verbs: ['テスト'] };
 
-    await applySettings(filePath, spinnerVerbs);
+    // Act
+    await sut(filePath, spinnerVerbs);
 
+    // Assert
     const content = await Bun.file(filePath).json();
     expect(content).toEqual({ spinnerVerbs });
   });
 
   test('ディレクトリが存在しない場合は作成してから保存できる', async () => {
+    // Arrange
+    const sut = applySettings;
     const dir = await createTmpDir();
     tmpDirs.push(dir);
     const filePath = join(dir, 'nested', '.claude', 'settings.json');
     const spinnerVerbs = { mode: 'replace' as const, verbs: ['テスト'] };
 
-    await applySettings(filePath, spinnerVerbs);
+    // Act
+    await sut(filePath, spinnerVerbs);
 
+    // Assert
     const content = await Bun.file(filePath).json();
     expect(content).toEqual({ spinnerVerbs });
   });
 
   test('既存ファイルの spinnerVerbs を上書き保存できる', async () => {
+    // Arrange
+    const sut = applySettings;
     const dir = await createTmpDir();
     tmpDirs.push(dir);
     const filePath = join(dir, 'settings.json');
@@ -56,13 +66,17 @@ describe('applySettings', () => {
     );
     const spinnerVerbs = { mode: 'replace' as const, verbs: ['新しいセリフ'] };
 
-    await applySettings(filePath, spinnerVerbs);
+    // Act
+    await sut(filePath, spinnerVerbs);
 
+    // Assert
     const content = await Bun.file(filePath).json();
     expect(content).toEqual({ spinnerVerbs });
   });
 
   test('既存の他フィールドを維持しながら spinnerVerbs のみ更新できる', async () => {
+    // Arrange
+    const sut = applySettings;
     const dir = await createTmpDir();
     tmpDirs.push(dir);
     const filePath = join(dir, 'settings.json');
@@ -73,8 +87,10 @@ describe('applySettings', () => {
     await Bun.write(filePath, JSON.stringify(existingContent));
     const spinnerVerbs = { mode: 'replace' as const, verbs: ['新しいセリフ'] };
 
-    await applySettings(filePath, spinnerVerbs);
+    // Act
+    await sut(filePath, spinnerVerbs);
 
+    // Assert
     const content = await Bun.file(filePath).json();
     expect(content).toEqual({
       permissions: { allow: ['Bash(git:*)'] },
