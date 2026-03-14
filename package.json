@@ -19,6 +19,9 @@
     "cli",
     "theme"
   ],
+  "engines": {
+    "node": ">=20"
+  },
   "bin": {
     "cc-spinner": "./dist/index.js"
   },
