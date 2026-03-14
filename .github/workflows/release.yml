@@ -28,7 +28,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup
-      - uses: changesets/action@e87c8ed249971350e47fab7515075f44eb134e5b # v1.7.0
+      - uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf # v1.7.0
         with:
           publish: bun run build && npm publish --access public
         env:

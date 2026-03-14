@@ -25,8 +25,10 @@
   "knip": {
     "entry": [
       "src/index.ts",
-      "src/validate-themes.ts",
       "tests/**/*.test.ts"
+    ],
+    "ignoreDependencies": [
+      "@changesets/cli"
     ]
   },
   "devDependencies": {
