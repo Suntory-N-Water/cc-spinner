@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "frieren",
   "description": "葬送のフリーレンに登場するフリーレン様のセリフ",
   "tags": ["anime", "japanese"],

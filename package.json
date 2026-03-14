@@ -1,9 +1,29 @@
 {
   "name": "@suntory-n-water/cc-spinner",
+  "description": "CLI tool to distribute and apply spinnerVerbs themes for Claude Code",
   "type": "module",
   "version": "0.0.2",
+  "license": "MIT",
+  "homepage": "https://github.com/Suntory-N-Water/cc-spinner#readme",
+  "bugs": {
+    "url": "https://github.com/Suntory-N-Water/cc-spinner/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suntory-N-Water/cc-spinner.git"
+  },
+  "keywords": [
+    "claude-code",
+    "spinner",
+    "spinner-verbs",
+    "cli",
+    "theme"
+  ],
   "bin": {
     "cc-spinner": "./dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "dist"

@@ -4,6 +4,9 @@
   "required": ["name", "mode", "verbs"],
   "additionalProperties": false,
   "properties": {
+    "$schema": {
+      "type": "string"
+    },
     "name": {
       "type": "string",
       "pattern": "^[a-z0-9-]+$"

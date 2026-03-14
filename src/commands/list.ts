@@ -14,7 +14,7 @@ const GitHubContentsSchema = v.array(
 export async function fetchAllThemes(): Promise<Theme[]> {
   const res = await fetch(THEMES_API);
   if (!res.ok) {
-    throw new Error('テーマ一覧の取得に失敗しました');
+    throw new Error('Failed to fetch theme list');
   }
 
   const items = v.parse(GitHubContentsSchema, await res.json());
@@ -36,7 +36,7 @@ export async function listCommand(): Promise<void> {
     process.exit(1);
   });
 
-  console.log(pc.bold('\n利用可能なテーマ:\n'));
+  console.log(pc.bold('\nAvailable themes:\n'));
   for (const theme of themes) {
     const tags =
       theme.tags && theme.tags.length > 0

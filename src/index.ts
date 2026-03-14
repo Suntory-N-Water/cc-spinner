@@ -18,29 +18,34 @@ const program = new Command();
 
 program
   .name('cc-spinner')
-  .description('Claude Code の spinnerVerbs テーマを配布・適用する CLI ツール')
+  .description(
+    'CLI tool to distribute and apply spinnerVerbs themes for Claude Code',
+  )
   .version(version);
 
 program
   .command('add <theme>')
-  .description('テーマを適用する(テーマ名または owner/repo 形式)')
-  .option('-g, --global', 'グローバルスコープ (~/.claude/settings.json)')
-  .option('-l, --local', 'ローカルスコープ (.claude/settings.local.json)')
+  .description('Apply a theme by name or from an owner/repo source')
+  .option('-g, --global', 'Apply to the global scope (~/.claude/settings.json)')
+  .option(
+    '-l, --local',
+    'Apply to the local scope (.claude/settings.local.json)',
+  )
   .action(addCommand);
 
 program
   .command('preview <theme>')
-  .description('セリフ一覧を確認する(settings.json は変更しない)')
+  .description('Preview verbs without modifying settings.json')
   .action(previewCommand);
 
 program
   .command('list')
-  .description('中央リポジトリのテーマ一覧を表示する')
+  .description('List themes available in the central repository')
   .action(listCommand);
 
 program
-  .command('find <tag>')
-  .description('タグでテーマを検索する')
+  .command('find <query>')
+  .description('Find themes by name, description, or tag')
   .action(findCommand);
 
 program.parse();

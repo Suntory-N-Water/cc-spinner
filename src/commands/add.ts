@@ -28,16 +28,16 @@ export async function addCommand(
     scope = 'local';
   } else {
     const selected = await p.select<Scope>({
-      message: `テーマ "${theme}" を適用しますか？`,
+      message: `Where do you want to apply "${theme}"?`,
       options: [
-        { value: 'project', label: 'プロジェクト (.claude/settings.json)' },
-        { value: 'global', label: 'グローバル (~/.claude/settings.json)' },
-        { value: 'local', label: 'ローカル (.claude/settings.local.json)' },
+        { value: 'project', label: 'Project (.claude/settings.json)' },
+        { value: 'global', label: 'Global (~/.claude/settings.json)' },
+        { value: 'local', label: 'Local (.claude/settings.local.json)' },
       ],
     });
 
     if (p.isCancel(selected)) {
-      p.cancel('キャンセルされました');
+      p.cancel('Cancelled');
       process.exit(0);
     }
 
@@ -47,5 +47,5 @@ export async function addCommand(
   const filePath = resolveScope(scope);
   await applySettings(filePath, themeData);
 
-  p.outro(`テーマ "${theme}" を ${filePath} に適用しました`);
+  p.outro(`Applied "${theme}" to ${filePath}`);
 }
