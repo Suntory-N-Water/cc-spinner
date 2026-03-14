@@ -1,56 +1,54 @@
 # cc-spinner
 
-[日本語](./README.ja.md)
+Claude Code の `spinnerVerbs` テーマを配布・適用する CLI ツール。
 
-A CLI tool to distribute and apply `spinnerVerbs` themes for Claude Code.
-
-Claude Code supports a `spinnerVerbs` setting in `settings.json` that customizes the text displayed while the AI is processing. **cc-spinner** makes it easy to share and apply these themes.
+Claude Code は `settings.json` の `spinnerVerbs` 設定で、AI が処理中に表示するテキストをカスタマイズできます。**cc-spinner** はこのテーマを簡単に共有・適用できるようにします。
 
 ```bash
 npx cc-spinner add frieren
 ```
 
-## Commands
+## コマンド
 
-### `add <theme>` — Apply a theme
+### `add <theme>` — テーマを適用する
 
 ```bash
 npx cc-spinner add <theme> [options]
 ```
 
-| Argument | Description |
-|----------|-------------|
-| `<theme>` | Theme name from the central repository, or `owner/repo` for any GitHub repository |
+| 引数 | 説明 |
+|------|------|
+| `<theme>` | 中央リポジトリのテーマ名、または任意の GitHub リポジトリを指定する `owner/repo` 形式 |
 
-| Option | Description |
-|--------|-------------|
-| `-g, --global` | Apply to `~/.claude/settings.json` |
-| `-l, --local` | Apply to `.claude/settings.local.json` |
-| _(none)_ | Prompts you to choose a scope |
+| オプション | 説明 |
+|-----------|------|
+| `-g, --global` | `~/.claude/settings.json` に適用 |
+| `-l, --local` | `.claude/settings.local.json` に適用 |
+| _(なし)_ | スコープを選択するプロンプトを表示 |
 
-**Example — central repository:**
+**例 — 中央リポジトリのテーマ:**
 ```bash
 npx cc-spinner add frieren
 ```
 
-**Example — any GitHub repository:**
+**例 — GitHub リポジトリを直接指定:**
 ```bash
 npx cc-spinner add Suntory-N-Water/claude-code-changelog-viewer
 ```
 
 ---
 
-### `preview <theme>` — Preview verbs without applying
+### `preview <theme>` — セリフ一覧を確認する
 
 ```bash
 npx cc-spinner preview frieren
 ```
 
-Displays the list of verbs without modifying any `settings.json`.
+`settings.json` を変更せずにセリフの一覧を表示します。
 
 ---
 
-### `list` — List available themes
+### `list` — 利用可能なテーマ一覧を表示する
 
 ```bash
 npx cc-spinner list
@@ -58,45 +56,45 @@ npx cc-spinner list
 
 ---
 
-### `find <tag>` — Search themes by tag
+### `find <tag>` — タグでテーマを検索する
 
 ```bash
 npx cc-spinner find anime
 ```
 
-## Theme format
+## テーマのフォーマット
 
-Themes are stored as JSON files in the `themes/` directory and must conform to the following schema:
+テーマは `themes/` ディレクトリ内の JSON ファイルとして管理され、以下のスキーマに従う必要があります:
 
 ```json
 {
   "name": "frieren",
-  "description": "Quotes from Frieren: Beyond Journey's End",
+  "description": "葬送のフリーレンのセリフ集",
   "tags": ["anime", "japanese"],
   "mode": "replace",
   "verbs": [
-    "Magic is most fun when you're still searching for it.",
-    "I see."
+    "魔法は探し求めている時が一番楽しいんだよ",
+    "そうだね。"
   ]
 }
 ```
 
-| Field | Type | Required | Constraints |
-|-------|------|----------|-------------|
-| `name` | string | ✅ | Lowercase letters, digits, and hyphens only. Must match the filename. |
-| `description` | string | — | Any string |
-| `tags` | string[] | — | Any strings |
-| `mode` | string | ✅ | `"replace"` or `"append"` |
-| `verbs` | string[] | ✅ | At least one item |
+| フィールド | 型 | 必須 | 制約 |
+|-----------|-----|------|------|
+| `name` | string | ✅ | 英小文字・数字・ハイフンのみ。ファイル名(拡張子除く)と一致させる |
+| `description` | string | — | 制約なし |
+| `tags` | string[] | — | 制約なし |
+| `mode` | string | ✅ | `"replace"` または `"append"` のみ |
+| `verbs` | string[] | ✅ | 1つ以上 |
 
-## Contributing a theme
+## テーマを追加する(コントリビューター向け)
 
-1. Fork `Suntory-N-Water/cc-spinner`
-2. Add `themes/<name>.json` (filename must match the `name` field)
-3. Open a pull request — CI will validate the schema automatically
-4. After review and merge, your theme becomes available via `npx cc-spinner add <name>`
+1. `Suntory-N-Water/cc-spinner` を fork する
+2. `themes/<テーマ名>.json` を追加する(ファイル名は `name` フィールドと一致させる)
+3. PR を送る — CI がスキーマバリデーションを自動実行する
+4. レビュー・マージ後、`npx cc-spinner add <name>` で利用可能になる
 
-## Development
+## 開発
 
 ```bash
 bun install

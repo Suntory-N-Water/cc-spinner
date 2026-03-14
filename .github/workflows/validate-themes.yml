@@ -2,8 +2,6 @@ name: Validate Themes
 
 on:
   pull_request:
-    paths:
-      - "themes/**"
 
 defaults:
   run:
@@ -22,5 +20,17 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+      - name: themes の変更を確認
+        id: check
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          if git diff --name-only "origin/${BASE_REF}...HEAD" | grep -q '^themes/'; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
       - uses: ./.github/actions/setup
+        if: steps.check.outputs.changed == 'true'
       - run: bun run src/validate-themes.ts
+        if: steps.check.outputs.changed == 'true'
