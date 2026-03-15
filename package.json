@@ -32,7 +32,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "bun build src/index.ts --outfile dist/index.js --target node",
+    "build": "bun build src/index.ts --outfile dist/index.js --target node --minify",
     "prepublishOnly": "bun run build",
     "test": "AGENT=1 bun test --bail=2",
     "format": "biome format --write .",
