@@ -1,5 +1,11 @@
 # cc-spinner
 
+## 0.0.4
+
+### Patch Changes
+
+- [#10](https://github.com/Suntory-N-Water/cc-spinner/pull/10) [`0e2c75b`](https://github.com/Suntory-N-Water/cc-spinner/commit/0e2c75bc8529b2f1bf75351544747965534cf144) Thanks [@Suntory-N-Water](https://github.com/Suntory-N-Water)! - Add --minify flag to bun build to reduce bundle size from 149KB to 87KB, and update README and banner to use scoped package name (@suntory-n-water/cc-spinner).
+
 ## 0.0.3
 
 ### Patch Changes
