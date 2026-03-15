@@ -32,7 +32,7 @@ const LOGO_LINES = [
 function cmd(command: string, args: string, description: string): void {
   const reset = isColorSupported ? RESET : '';
   console.log(
-    `  ${DIM}$${reset} ${TEXT}npx cc-spinner ${command} ${DIM}${args}${reset}  ${DIM}${description}${reset}`,
+    `  ${DIM}$${reset} ${TEXT}npx @suntory-n-water/cc-spinner ${command} ${DIM}${args}${reset}  ${DIM}${description}${reset}`,
   );
 }
 
@@ -62,6 +62,6 @@ export function showBanner(): void {
   cmd('list', '', 'List available themes');
   cmd('find', '<query>', 'Find themes');
   console.log();
-  console.log(`${DIM}try:${reset} npx cc-spinner add frieren`);
+  console.log(`${DIM}try:${reset} npx @suntory-n-water/cc-spinner add frieren`);
   console.log();
 }

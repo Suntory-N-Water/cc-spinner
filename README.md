@@ -7,7 +7,7 @@ A CLI tool to distribute and apply `spinnerVerbs` themes for Claude Code.
 Claude Code supports a `spinnerVerbs` setting in `settings.json` that customizes the text displayed while the AI is processing. **cc-spinner** makes it easy to share and apply these themes.
 
 ```bash
-npx cc-spinner add frieren
+npx @suntory-n-water/cc-spinner add frieren
 ```
 
 ## Commands
@@ -15,7 +15,7 @@ npx cc-spinner add frieren
 ### `add <theme>` — Apply a theme
 
 ```bash
-npx cc-spinner add <theme> [options]
+npx @suntory-n-water/cc-spinner add <theme> [options]
 ```
 
 | Argument | Description |
@@ -30,12 +30,12 @@ npx cc-spinner add <theme> [options]
 
 **Example — central repository:**
 ```bash
-npx cc-spinner add frieren
+npx @suntory-n-water/cc-spinner add frieren
 ```
 
 **Example — any GitHub repository:**
 ```bash
-npx cc-spinner add Suntory-N-Water/claude-code-changelog-viewer
+npx @suntory-n-water/cc-spinner add Suntory-N-Water/claude-code-changelog-viewer
 ```
 
 ---
@@ -43,7 +43,7 @@ npx cc-spinner add Suntory-N-Water/claude-code-changelog-viewer
 ### `preview <theme>` — Preview verbs without applying
 
 ```bash
-npx cc-spinner preview frieren
+npx @suntory-n-water/cc-spinner preview frieren
 ```
 
 Displays the list of verbs without modifying any `settings.json`.
@@ -53,7 +53,7 @@ Displays the list of verbs without modifying any `settings.json`.
 ### `list` — List available themes
 
 ```bash
-npx cc-spinner list
+npx @suntory-n-water/cc-spinner list
 ```
 
 ---
@@ -61,7 +61,7 @@ npx cc-spinner list
 ### `find <query>` — Search themes
 
 ```bash
-npx cc-spinner find anime
+npx @suntory-n-water/cc-spinner find anime
 ```
 
 Searches across theme names, descriptions, and tags.
@@ -98,7 +98,7 @@ Themes are stored as JSON files in the `themes/` directory and must conform to t
 1. Fork `Suntory-N-Water/cc-spinner`
 2. Add `themes/<name>.json` (filename must match the `name` field)
 3. Open a pull request
-4. After review and merge, your theme becomes available via `npx cc-spinner add <name>`
+4. After review and merge, your theme becomes available via `npx @suntory-n-water/cc-spinner add <name>`
 
 ## References
 
